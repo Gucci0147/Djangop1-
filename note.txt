@@ -1,0 +1,60 @@
+pipenv shell
+pip install django
+pip show django
+start a project =run (django-admin startproject name of project .)
+run your server =run (python manage.py runserver)
+migrate =run (python manage.py migrate)
+create super user = run (python manage.py createsuperuser)
+create app =run (python manage.py startapp name of app i.e authenticate)
+import os in .settings.py
+activate the app (add the app to your installed apps in settings.py) i.e 'authenticate',
+
+you're not working on models.py
+
+Views.py:
+when dealing with views the two important things : urls.py and views.py
+in urls.py, add include because we need to seperate the urls in myproject and myapp (mysite & authenticate)
+create another path for the homepage under urlpatterns in urls.py i.e = path('', include('authenticate.urls'))
+create urls.py in authenticate
+populate urls.py in authenticate i.e:
+    import path (from django.urls import path)
+    urlpatterns contains our path i.e, path('', views.home, name='home')
+go to your views.py use function-base-view to create a view
+create your first views: i.e, 
+    def home(request):
+        return render(request, 'home.html')
+
+import views in url.py (from . import views)
+
+create a template:
+go to settings.py, then before templates you will create a template_dir, also pass in template_dir into the 'dirs'
+create a folder (template),inside create base.html,home.html,about.html,faq.html
+Then in base.html create a html boiler plate
+- in <title> add block tittle, in <body> add block body
+- in home.html extends "base.html", also make use of the block title & block body
+
+styling:
+Add bootstrap- copy bootstrap css after </tittle> and copy bootstrap JS before <body>
+Note: style code should be paste in base.html after boostrap css link
+Navbar codes will be in base.html before the block body
+
+Create more functions/ views for about.html, faq.html i.e
+-  def about(request):
+        return render(request, 'about.html')
+
+-  def faq(request):
+        return render(request, 'fansq.html')
+
+Link the views up in url.py
+- create paths in urlpatterns i.e,
+    path('about/', views.about, name='about'),
+    path('faq/', views.faq, name='faq'),
+
+- href="{% url 'home' %}
+
+
+Login Logic:
+
+Register Logic:
+
+

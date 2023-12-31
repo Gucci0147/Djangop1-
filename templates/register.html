@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Register Page
+{% endblock title %}
+
+{% block body %}
+ <h2 class="text-center">Register</h2>
+ <div class='col-md-6 offset-md-3'>
+
+  <form method='POST' class='my-5 py-3'>
+  {% csrf_token %}
+  {% if form.errors %}
+  <p>Your Form has Errors</p>
+  {% endif %}
+  {{ form.as_p }}
+    
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
+  </form>
+  
+</div>
+{% endblock body %}

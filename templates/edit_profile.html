@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Edit Page
+{% endblock title %}
+
+{% block body%}
+<h2 class="text-center">Edit Profile</h2>
+<div class='col-md-6 offset-md-3'>
+
+<form method='POST' class='my-5 py-3'>
+    {% csrf_token %}
+    {% if form.errors %}
+    <p class="text-white text-center bg-danger">Your Form has Errors</p>
+    {% endif %}
+    {{ form.as_p }}
+      
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Edit Profile</button>
+    </div>
+    </form>
+{% endblock body%}
